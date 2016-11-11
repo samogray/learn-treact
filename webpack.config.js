@@ -1,17 +1,22 @@
 /**
  * Created by Oleksandr on 11.11.2016.
  */
-const webpack = require('webpack');
-
-const  config = {
-    context: __dirname + "./app",
-    entry: "./entry",
-    output: {
-        path: __dirname + "/dist",
-        filename: "bundle.js"
-    }
-}
 
 module.exports = {
-    // configuration
-};
+    entry: "./app.js",
+    output: {
+        filename: "./dist/bundle.js"
+    },
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            query: {
+                presets: ['es2015'],
+                cacheDirectory: true
+            }
+        }],
+        devtool: "source-map"
+    }
+}

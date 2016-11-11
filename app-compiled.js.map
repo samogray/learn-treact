@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.js"],"names":[],"mappings":";;AAAA,SAAS,KAAT,CAAe,WAAf;;AAEA,IAAM,OAAO,MAAb","file":"app-compiled.js","sourcesContent":["document.write(\"It works.\");\n\nconst test = 'test'"]}
