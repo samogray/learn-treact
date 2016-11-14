@@ -3,7 +3,7 @@
  */
 
 module.exports = {
-    entry: "./app.js",
+    entry: "./app",
     output: {
         filename: "./dist/bundle.js"
     },
