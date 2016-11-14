@@ -1,9 +1,12 @@
 /**
  * Created by Oleksandr on 11.11.2016.
  */
+const webpack = require('webpack');
 
 module.exports = {
-    entry: "./app",
+    entry:{
+        main: ["webpack-dev-server/client","./app"]
+    },
     output: {
         filename: "./dist/bundle.js"
     },
@@ -25,8 +28,13 @@ module.exports = {
                 test: /\.scss$/,
                 loaders: ["style", "css?sourceMap", "sass?sourceMap"]
             }
-        ],
-        devtool: "source-map"
+        ]
     },
-    watch: true
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ],
+    devServer: {
+        contentBase: __dirname +'/dist',
+        hot: true
+    }
 }
