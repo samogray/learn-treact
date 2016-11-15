@@ -2,11 +2,13 @@
  * Created by Oleksandr on 11.11.2016.
  */
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
     entry: './app',
     output: {
-        filename: "./dist/bundle.js"
+        path: `${__dirname}/dist`,
+        filename: 'bundle.js'
     },
     module: {
         loaders: [
@@ -15,8 +17,8 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    presets: ["es2015","react"],
-                    cacheDirectory: true
+                    presets: ["es2015","react"]
+                   // cacheDirectory: true
                 }
             },
             {
@@ -30,9 +32,9 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin()
-    ]/*,
+    ],
     devServer: {
-        contentBase: __dirname +'/dist',
+        contentBase:'./dist',
         hot: true
-    }*/
+    }
 }
