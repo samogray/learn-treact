@@ -4,9 +4,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-    entry:{
-        main: ["webpack-dev-server/client","./app"]
-    },
+    entry: './app',
     output: {
         filename: "./dist/bundle.js"
     },
@@ -17,7 +15,7 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    presets: ['es2015'],
+                    presets: ["es2015","react"],
                     cacheDirectory: true
                 }
             },
@@ -32,9 +30,9 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin()
-    ],
+    ]/*,
     devServer: {
         contentBase: __dirname +'/dist',
         hot: true
-    }
+    }*/
 }
