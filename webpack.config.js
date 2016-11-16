@@ -5,7 +5,9 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-    entry: './app',
+    entry: {
+        main: ['webpack-dev-server/client','webpack/hot/dev-server','./app']
+    },
     output: {
         path: `${__dirname}/dist`,
         filename: 'bundle.js'
@@ -17,8 +19,8 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    presets: ["es2015","react"]
-                   // cacheDirectory: true
+                    presets: ["es2015","react"],
+                    cacheDirectory: true
                 }
             },
             {
@@ -27,6 +29,19 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loaders: ["style", "css?sourceMap", "sass?sourceMap"]
+            },
+            {
+                test: /\.(jpe?g|png|gif)$/i,
+                loader: 'file?name=images/[name].[ext]?[hash]'
+            }, {
+                test: /\.(svg)/,
+                loader: 'file?name=images/[name].[ext]?[hash]'
+            }, {
+                test: /\.font$/,
+                loader: 'style!css!fontgen?fileName=fonts/[fontname].[ext]?[hash]'
+            }, {
+                test: /\.(eot|ttf|woff|woff2)/,
+                loader: 'file?name=fonts/[name].[ext]?[hash]'
             }
         ]
     },
