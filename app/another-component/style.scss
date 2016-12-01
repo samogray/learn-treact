@@ -1,0 +1,22 @@
+.localTest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  width: 300px;
+  border-radius: 26px;
+  height: 50px;
+  margin: 8px;
+  background-color: orange;
+  font-size: 18px;
+  &__element {
+    padding: 10px 7px;
+    height: 20px;
+    background-color: greenyellow;
+  }
+}
+
+.border {
+  border: 2px solid rgba(207, 70, 6, 1);
+}

@@ -28,7 +28,12 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loaders: ["style", "css?sourceMap", "sass?sourceMap"]
+                loaders: [
+                    'style',
+                    'css?sourceMap&modules&importLoaders=1&localIdentName=[local]_[hash:base64:3]',
+                    'resolve-url',
+                    'sass?sourceMap'
+                ]
             },
             {
                 test: /\.(jpe?g|png|gif)$/i,
