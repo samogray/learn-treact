@@ -3,6 +3,9 @@
  */
 const webpack = require('webpack');
 const path = require('path');
+const autoprefixer = require('autoprefixer');
+const postcss = require('postcss');
+const cssnano = require('cssnano');
 
 module.exports = {
     entry: {
@@ -31,6 +34,7 @@ module.exports = {
                 loaders: [
                     'style',
                     'css?sourceMap&modules&importLoaders=1&localIdentName=[local]_[hash:base64:3]',
+                    'postcss?sourceMap',
                     'resolve-url',
                     'sass?sourceMap'
                 ]
@@ -49,6 +53,9 @@ module.exports = {
                 loader: 'file?name=fonts/[name].[ext]?[hash]'
             }
         ]
+    },
+    postcss: function postcss() {
+        return [autoprefixer({browsers: ['last 2 versions']}), cssnano()]
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin()
