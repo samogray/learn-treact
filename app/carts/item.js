@@ -4,7 +4,7 @@ import {Col, Thumbnail, Button} from 'react-bootstrap';
 const Item = () => {
   return (
       <Col xs={6} md={4}>
-        <Thumbnail src="https://vk.cc/6kwwuj" alt="242x200" responsive>
+        <Thumbnail src={require('./../style/img/logo.svg')} alt="242x200">
           <h3>Thumbnail label</h3>
           <p>Description</p>
           <p>
