@@ -57,13 +57,13 @@ module.exports = {
             loader: 'image-webpack-loader',
             query: {
               progressive: true,
-              optimizationLevel: 7,
+              optimizationLevel: 6,
               interlaced: false,
               pngquant: {
                 quality: '65-90',
                 speed: 4
               },
-              svgo:{
+              svgo: {
                 plugins: [
                   {
                     removeViewBox: false

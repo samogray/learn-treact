@@ -1,0 +1,13 @@
+.image {
+  max-width: 100%;
+  max-height: 200px;
+  display: block;
+  margin: 0 auto;
+  &__wrapper {
+    padding: 0 15px;
+  }
+}
+
+.slider {
+  padding: 30px;
+}
