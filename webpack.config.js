@@ -52,17 +52,10 @@ module.exports = {
       }, {
         test: /\.(gif|png|jpe?g|svg)$/i,
         loaders: [
-          'file-loader',
+          'file-loader?name=images/[name].[ext]?[hash]',
           {
             loader: 'image-webpack-loader',
             query: {
-              progressive: true,
-              optimizationLevel: 6,
-              interlaced: false,
-              pngquant: {
-                quality: '65-90',
-                speed: 4
-              },
               svgo: {
                 plugins: [
                   {

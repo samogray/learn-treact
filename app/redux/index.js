@@ -1,43 +1,49 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap'
+import {PropTypes} from 'react'
 import {connect} from 'react-redux'
+import User from  './components/user'
+import Page from  './components/page'
+import {bindActionCreators} from 'redux'
 import css from './redux.scss'
+import * as pageActions from './actions/page-actions'
 
 
-const ReduxApp = ({name, surname, age, country}) => {
-  return (
-    <Row>
-      <Col xs={12}>
-        <div className={css.redux}>
-          <img src={require('./img/img1.jpeg')} alt="hey"/>
-        </div>
-      </Col>
-      <Col xs={12}>
-        <div className={css.redux}>
-          <h1>Hello {name} {surname}!</h1>
-          <h3><span>You have {age} year</span></h3>
-          <h3><span>and you from {country}</span></h3>
-        </div>
-      </Col>
-    </Row>
-  )
+class ReduxApp extends React.Component {
+  render() {
+    const {name, surname, age, country} = this.props.user
+    const {year, photos} = this.props.page
+    const {setYear} = this.props.pageActions
+    return (
+      <Row>
+        <Col xs={12}>
+          <div className={css.redux}>
+            <User name={name}
+                  surname={surname}
+                  age={age}
+                  country={country}/>
+            <Page photos={photos}
+                  year={year}
+                  setYear={setYear}/>
+          </div>
+        </Col>
+      </Row>
+    )
+  }
 }
 
 function mapStateToProps(state) {
   return {
-    name: state.name,
-    surname: state.surname,
-    age: state.age,
-    country: state.country,
+    user: state.user,
+    page: state.page
   }
 }
 
-ReduxApp.propTypes = {
-  name: React.PropTypes.string,
-  surname: React.PropTypes.string,
-  age: React.PropTypes.number,
-  country: React.PropTypes.string
+function mapDispatchToProps(dispatch) {
+  return {
+    pageActions: bindActionCreators(pageActions, dispatch)
+  }
 }
 
-export default  connect(mapStateToProps)(ReduxApp)
+export default connect(mapStateToProps, mapDispatchToProps)(ReduxApp)
 
