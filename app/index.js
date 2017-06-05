@@ -8,6 +8,8 @@ import {Provider} from 'react-redux'
 import {Grid, Row, Col} from 'react-bootstrap';
 import configureStore from './redux/configure-store'
 import './style/style.scss';
+const __svg__ = { path: './sprite/svg/**/*.svg', name: 'assets/svg/[hash].sprite.svg' };
+require('webpack-svgstore-plugin/src/helpers/svgxhr')(__svg__);
 
 const store = configureStore();
 
@@ -23,7 +25,7 @@ ReactDOM.render(
       <Redux/>
     </Provider>
     <Footer/>
-
   </Grid>,
+  
   document.getElementById('root')
 );

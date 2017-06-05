@@ -7,6 +7,8 @@ const autoprefixer = require('autoprefixer');
 const postcss = require('postcss');
 const cssnano = require('cssnano');
 const localIdentName = '[local]_[hash:base64:3]'
+const SvgStore = require('webpack-svgstore-plugin');
+
 
 module.exports = {
   entry: './app',
@@ -79,7 +81,18 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new SvgStore({
+      svgoOptions: {
+        plugins: [
+          {
+            removeViewBox: false,
+            removeTitle: true,
+            removeEmptyAttrs: true
+          }]
+      },
+      prefix: 'icon-'
+    })
   ],
   devServer: {
     contentBase: './dist',
