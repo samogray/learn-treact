@@ -1,17 +1,22 @@
-import {GET_PHOTOS_REQUEST, GET_PHOTOS_SUCCESS} from './../constans/page'
 
 const initialState = {
-  year: 2017,
-  photos: ['img1.jpeg', 'img1.jpeg', 'img2.jpeg'],
   fetching: false
 }
 
 export default function page(state = initialState, action) {
-  switch  (action.type) {
-    case GET_PHOTOS_REQUEST:
-      return { ...state, year: action.payload, fetching: true }
-    case GET_PHOTOS_SUCCESS:
-      return { ...state, year: action.payload, fetching: false }
-    default: return state
+  const {year, photos} = action
+  switch (action.type) {
+    case 'START_FETCH':
+      return {...state, fetching: true}
+    case 'SET_YEAR':
+      return {fetching: false, [year]: photos}
+    case 'APPEND_YEAR':
+      return {...state, [year]: photos, fetching: false}
+    case 'SET_YEARS':
+      return {...state}
+    
+    default:
+      return state;
   }
+
 }

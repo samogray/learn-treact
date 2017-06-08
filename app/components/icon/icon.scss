@@ -5,6 +5,10 @@
 
   .svg-icon {
     height: auto;
+    transition: stroke .2s ease-out;
+    &:hover {
+      stroke: blue;
+    }
   }
   
 }

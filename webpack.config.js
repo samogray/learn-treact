@@ -23,7 +23,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ["es2015", "react"],
+          presets: ["es2015", "react", "stage-0"],
           cacheDirectory: true
         }
       }, {
@@ -88,7 +88,7 @@ module.exports = {
           {
             removeViewBox: false,
             removeTitle: true,
-            removeEmptyAttrs: true
+            removeEmptyAttrs: false,
           }]
       },
       prefix: 'icon-'
