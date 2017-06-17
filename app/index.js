@@ -11,7 +11,29 @@ import './style/style.scss';
 const __svg__ = { path: './sprite/svg/**/*.svg', name: 'assets/svg/[hash].sprite.svg' };
 require('webpack-svgstore-plugin/src/helpers/svgxhr')(__svg__);
 
-const store = configureStore();
+const initialState = {
+  page: [{
+    year: 2017,
+    photos: ['img1.jpeg', 'img1.jpeg', 'img2.jpeg'],
+    fetching: false
+  },{
+    year: 2016,
+    photos: ['img1.jpeg'],
+    fetching: false
+  },{
+    year: 2015,
+    photos: [],
+    fetching: false
+  }],
+  user: {
+    name: 'Alex',
+    surname: 'Gonzales',
+    age: 30,
+    country: 'Germany'
+  }
+}
+
+const store = configureStore(initialState);
 
 ReactDOM.render(
   <Grid fluid={true}>

@@ -7,12 +7,12 @@
     "autoprefixer": "^6.5.3",
     "classnames": "^2.2.5",
     "normalize.css": "^5.0.0",
-    "react": "^15.3.2",
+    "react": "^15.6.1",
     "react-bootstrap": "^0.30.6",
-    "react-dom": "^15.3.2",
+    "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "react-scrollbar": "^0.5.1",
-    "redux": "^3.6.0",
+    "redux": "^3.7.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "style-loader": "^0.13.1"
@@ -43,7 +43,7 @@
     "toolbox-loader": "0.0.3",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1",
-    "webpack-svgstore-plugin": "^4.0.0"
+    "webpack-svgstore-plugin": "^4.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

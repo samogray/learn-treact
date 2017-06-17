@@ -1,4 +1,4 @@
-import {GET_PHOTOS_REQUEST, GET_PHOTOS_SUCCESS} from './../constans/page'
+import {GET_PHOTOS_REQUEST, GET_PHOTOS_SUCCESS, SET_DATA} from './../constans/page'
 
 export function getPhotos(year) {
   return (dispatch) => {
@@ -11,5 +11,14 @@ export function getPhotos(year) {
       type: GET_PHOTOS_SUCCESS,
       payload: year
     }), 1000)
+  }
+}
+
+export function setData(data) {
+  return (dispatch) => {
+    dispatch({
+      type: SET_DATA,
+      payload: data
+    })
   }
 }

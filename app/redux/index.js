@@ -13,9 +13,7 @@ import * as pageActions from './actions/page-actions'
 class ReduxApp extends React.Component {
   render() {
     const {name, surname, age, country} = this.props.user
-    const {year, photos, fetching} = this.props.page
-    const {getPhotos} = this.props.pageActions
-    console.log(typeof (year))
+   // const {setData} = this.props.page
     return (
       <Row>
         <Col xs={12}>
@@ -25,10 +23,7 @@ class ReduxApp extends React.Component {
                   surname={surname}
                   age={age}
                   country={country}/>
-            <Page photos={photos}
-                  year={year}
-                  getPhotos={getPhotos}
-                  fetching={fetching}/>
+            <Page data={this.props.page}/>
           </div>
         </Col>
       </Row>
