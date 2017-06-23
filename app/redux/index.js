@@ -35,6 +35,7 @@ class ReduxApp extends React.Component {
               <Button onClick={() => setData(newData)}>Завантажити</Button>
             </ButtonToolbar>
           </Panel>
+          <Panel/>
           <div className={css.redux}>
             <User name={name}
               surname={surname}
