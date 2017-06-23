@@ -1,18 +1,4 @@
-import {GET_PHOTOS_REQUEST, GET_PHOTOS_SUCCESS, SET_DATA} from './../constans/page'
-
-export function getPhotos(year) {
-  return (dispatch) => {
-    dispatch({
-      type: GET_PHOTOS_REQUEST,
-      payload: year,
-    })
-
-    setTimeout(() => dispatch({
-      type: GET_PHOTOS_SUCCESS,
-      payload: year
-    }), 1000)
-  }
-}
+import {GET_PHOTOS_REQUEST, GET_PHOTOS_SUCCESS, SET_DATA, DELETE_IMAGE} from './../constans/page'
 
 export function setData(data) {
   return (dispatch) => {
@@ -22,3 +8,15 @@ export function setData(data) {
     })
   }
 }
+
+export function deleteImage(action) {
+  return (dispatch) => {
+    dispatch({
+      type: DELETE_IMAGE,
+      ...action
+    })
+  }
+}
+
+
+

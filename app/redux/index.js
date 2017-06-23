@@ -1,10 +1,10 @@
 import React from 'react';
-import { Row, Col, ButtonToolbar, Button, Panel } from 'react-bootstrap'
-import { PropTypes } from 'react'
-import { connect } from 'react-redux'
+import {Row, Col, ButtonToolbar, Button, Panel} from 'react-bootstrap'
+import {PropTypes} from 'react'
+import {connect} from 'react-redux'
 import User from './components/user'
 import Page from './components/page'
-import { bindActionCreators } from 'redux'
+import {bindActionCreators} from 'redux'
 import css from './redux.scss'
 import Icon from './../components/icon'
 import * as pageActions from './actions/page-actions'
@@ -23,8 +23,9 @@ const newData = [{
 class ReduxApp extends React.Component {
 
   render() {
-    const { setData } = this.props.pageActions
-    const { name, surname, age, country } = this.props.user
+    const {deleteImage, setData} = this.props.pageActions
+    const {name, surname, age, country} = this.props.user
+
     return (
       <Row>
         <Col xs={12}>
@@ -39,7 +40,7 @@ class ReduxApp extends React.Component {
               surname={surname}
               age={age}
               country={country} />
-            <Page data={this.props.page} setData={setData}/>
+            <Page data={this.props.page} deleteImage={deleteImage} />
           </div>
         </Col>
       </Row>
@@ -61,4 +62,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReduxApp)
+
 
